@@ -21,7 +21,7 @@ export function OverviewAnalyticsView() {
   }, []);
 
   return (
-    <DashboardContent maxWidth="2xl">
+    <DashboardContent maxWidth="xl">
       <Stack
         direction="row"
         alignItems="center"
