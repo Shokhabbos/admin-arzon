@@ -10,6 +10,9 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 
 import { layoutClasses } from './classes';
+import { navData } from '../nav-config-dashboard';
+import { Typography } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -41,6 +44,23 @@ export function HeaderSection({
   ...other
 }: HeaderSectionProps) {
   const { offsetTop: isOffset } = useScrollOffsetTop();
+  const location = useLocation(); // Get current location
+
+  // Find the current navigation item based on the path
+  const currentPath = location.pathname;
+  const currentNavItem = navData.find((item) => {
+    // Check if current path exactly matches the nav item path
+    if (currentPath === item.path) return true;
+
+    // Check if current path starts with nav item path (for nested routes)
+    // Only apply this for non-root paths to avoid matching everything with '/'
+    if (item.path !== '/' && currentPath.startsWith(item.path)) return true;
+
+    return false;
+  });
+
+  // Default to 'Dashboard' if no match is found
+  const currentTitle = currentNavItem?.title || 'Dashboard';
 
   return (
     <HeaderRoot
@@ -64,9 +84,8 @@ export function HeaderSection({
 
       <HeaderContainer layoutQuery={layoutQuery} {...slotProps?.container}>
         {slots?.leftArea}
-
+        {currentTitle}
         <HeaderCenterArea {...slotProps?.centerArea}>{slots?.centerArea}</HeaderCenterArea>
-
         {/* {slots?.rightArea} */}
       </HeaderContainer>
 
