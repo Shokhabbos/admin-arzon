@@ -2,6 +2,7 @@ import type { AppBarProps } from '@mui/material/AppBar';
 import type { ContainerProps } from '@mui/material/Container';
 import type { Theme, SxProps, CSSObject, Breakpoint } from '@mui/material/styles';
 
+import { useLocation } from 'react-router-dom';
 import { useScrollOffsetTop } from 'minimal-shared/hooks';
 import { varAlpha, mergeClasses } from 'minimal-shared/utils';
 
@@ -11,8 +12,6 @@ import Container from '@mui/material/Container';
 
 import { layoutClasses } from './classes';
 import { navData } from '../nav-config-dashboard';
-import { Typography } from '@mui/material';
-import { useLocation } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
