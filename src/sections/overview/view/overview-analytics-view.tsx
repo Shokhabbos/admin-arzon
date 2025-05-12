@@ -57,23 +57,43 @@ export function OverviewAnalyticsView() {
           />
         </Box>
       </Stack>
-      <Grid container spacing={1} sx={{ mb: { xs: 3, md: 5 } }}>
-        <Grid size={{ xs: 2 }}>
-          <Card sx={{ p: 2 }}>
-            <Typography variant="h5" fontWeight="400">
+      {/* Stats cards section */}
+      <Grid container spacing={3} sx={{ mb: { xs: 3, md: 5 } }}>
+        {/* Card 1 */}
+        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
+          <Card
+            sx={{
+              p: 3,
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
               Clicklar soni
             </Typography>
-            <Typography variant="h6" fontWeight="bold">
+            <Typography variant="h3" fontWeight="bold">
               1000
             </Typography>
           </Card>
         </Grid>
-        <Grid size={{ xs: 2 }}>
-          <Card sx={{ p: 2 }}>
-            <Typography variant="h5" fontWeight="400">
+
+        {/* Card 2 */}
+        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
+          <Card
+            sx={{
+              p: 3,
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
               Foydalanuvchilar soni
             </Typography>
-            <Typography variant="h6" fontWeight="bold">
+            <Typography variant="h3" fontWeight="bold">
               200
             </Typography>
           </Card>
